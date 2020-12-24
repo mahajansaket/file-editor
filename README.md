@@ -1,6 +1,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Tech stack
+----------
+
+- Frontend
+    - React v16.14.0
+    - Apollo Client v3.2.9
+
+- Backend
+    - Hasura GraphQL Engine
+
+
 ## Available Scripts
 
 In the project directory, you can run:
