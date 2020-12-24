@@ -27,7 +27,6 @@
     "react-monaco-editor": "^0.41.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "suneditor-react": "^2.14.10",
     "typeface-roboto": "^0.0.75"
   },
   "scripts": {
