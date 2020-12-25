@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import path from "path";
 import classNames from "classnames";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 
 import { Button } from "@material-ui/core";
-import { AddCircleOutline } from "@material-ui/icons";
+import { red } from "@material-ui/core/colors";
+
+import { AddCircleOutline, Delete } from "@material-ui/icons";
 import MarkdownEditor from "../../components/MarkdownEditor";
 import PlaintextEditor from "../../components/PlainTextEditor";
-import { READ_FILES } from "../../components/Graphql";
+import { READ_FILES, DELETE_FILE } from "../../components/Graphql";
 
 import { listFiles } from "../../assets/data/files";
 
@@ -18,6 +20,8 @@ import css from "./style.module.css";
 
 function FilesTable({ files, activeFile, setActiveFile }) {
   const { loading, error, data } = useQuery(READ_FILES);
+  const [deleteMutation] = useMutation(DELETE_FILE);
+
   const [currentFile, setFile] = useState();
 
   useEffect(() => {
@@ -27,6 +31,20 @@ function FilesTable({ files, activeFile, setActiveFile }) {
   }, [loading, data]);
   if (loading) return "Loading..."; //your component's return should always be after all hook calls//
   if (error) return `Error! ${error.message}`;
+
+  const handleDelete = (e) => {
+    deleteMutation({
+      variables: {
+        id: e,
+      },
+      optimisticResponse: {
+        __typename: "Mutation",
+        deleted: {
+          id: e,
+        },
+      },
+    });
+  };
 
   return (
     <div className={css.files}>
@@ -54,6 +72,11 @@ function FilesTable({ files, activeFile, setActiveFile }) {
                     __html: TYPE_TO_ICON[file.type],
                   }}
                 ></div> */}
+                <Delete
+                  onClick={handleDelete(file.name)}
+                  style={{ color: red[500] }}
+                  className={css.icon}
+                />
                 {path.basename(file.name)}
               </td>
 

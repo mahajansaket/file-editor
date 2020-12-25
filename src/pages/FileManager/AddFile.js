@@ -9,7 +9,7 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 
-function AddFile({ openModal, closeModal }) {
+function AddFile({ openModal, closeModal, file }) {
   const [newFile, setNewFile] = useState();
   const [fileData, setFileData] = useState();
   const [fileType, setFileType] = useState();
@@ -53,6 +53,7 @@ function AddFile({ openModal, closeModal }) {
       },
     });
     console.log(values);
+    closeModal();
   };
 
   let fileReader;

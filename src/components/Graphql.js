@@ -52,3 +52,18 @@ export const INSERT_FILES = gql`
     }
   }
 `;
+
+export const DELETE_FILE = gql`
+  mutation deleteFile($name: String) {
+    delete_file_list(where: { name: { _eq: $name } }) {
+      affected_rows
+      returning {
+        data
+        name
+        time
+        type
+        lastModified
+      }
+    }
+  }
+`;
