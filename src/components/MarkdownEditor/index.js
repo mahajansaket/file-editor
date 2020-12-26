@@ -35,7 +35,7 @@ function MarkdownEditor({ file, write }) {
   }
   return (
     <div className={css.editor}>
-      <h3>TODO</h3>
+      <h3>Editor Mode</h3>
       <i>text/markdown</i>
       <br />
       <div>In Progress</div>

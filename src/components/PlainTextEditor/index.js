@@ -7,7 +7,7 @@ function PlaintextEditor({ file, write }) {
   console.log(file, write);
   return (
     <div className={css.editor}>
-      <h3>TODO</h3>
+      <h3>Read-only Mode</h3>
       <i>text/plain</i>
       <br />
       {write}
