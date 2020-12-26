@@ -73,7 +73,7 @@ function FilesTable({ files, activeFile, setActiveFile }) {
                   }}
                 ></div> */}
                 <Delete
-                  onClick={handleDelete(file.name)}
+                  // onClick={handleDelete(file.name)}
                   style={{ color: red[500] }}
                   className={css.icon}
                 />

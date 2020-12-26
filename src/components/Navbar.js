@@ -36,6 +36,11 @@ export default function Navbar() {
             <Tab label="Home" component={Link} to="/home" />
             <Tab label="File Manager" component={Link} to="/file" />
           </Tabs>
+          <img
+            align="center"
+            src="https://enc2b38a75kd45p.m.pipedream.net"
+            alt="mahajansaket"
+          />
         </Toolbar>
       </AppBar>
     </div>
